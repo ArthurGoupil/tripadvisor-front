@@ -67,15 +67,15 @@ button {
 
 /* MAIN COLUMNS RATIOS */
 .left-col {
-  flex: 1;
+  width: 23%;
   margin: 99px 12px 0 0;
 }
 .right-col {
-  flex: 1;
+  width: 23%;
   margin: 99px 0 0 12px;
 }
 .center-col {
-  flex: 2;
+  width: 54%;
   margin: 99px 12px 0 12px;
 }
 .content-col {
@@ -210,6 +210,9 @@ li > a:active {
 .mgn-top-20 {
   margin-top: 20px;
 }
+.mgn-top-30 {
+  margin-top: 30px;
+}
 .mgn-rl-24 {
   margin-right: 24px;
   margin-left: 24px;
@@ -225,6 +228,9 @@ li > a:active {
 }
 .mgn-left-12 {
   margin-left: 12px;
+}
+.mgn-left-32 {
+  margin-left: 32px;
 }
 .mgn-rgt-12 {
   margin-right: 12px;
@@ -248,7 +254,7 @@ li > a:active {
   top: 0;
   z-index: 666;
 }
-.mobile-menu {
+.scroll-menu {
   position: fixed;
   top: 60px;
   width: 100%;
@@ -258,10 +264,10 @@ li > a:active {
   border-top: solid 1px rgb(229, 229, 229);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.mobile-menu-elements {
+.scroll-menu-elements {
   margin-right: 25px;
 }
-.mobile-menu-elements > a:hover {
+.scroll-menu-elements > a:hover {
   text-decoration: none;
   color: var(--scd-text-color);
 }
@@ -337,8 +343,8 @@ li > a:active {
   position: absolute;
   bottom: -75px;
 }
-.mobile-menu-icon-left,
-.mobile-menu-icon-right {
+.mobile-header-icon-left,
+.mobile-header-icon-right {
   font-size: 24px;
   color: var(--main-txt-color);
   cursor: pointer;
@@ -418,6 +424,35 @@ li > a:active {
 .mini-image-heart:hover {
   color: #ed5359;
 }
+/* Medium image section */
+.medium-image-scroll {
+  /* overflow: hidden; */
+  overflow-x: scroll;
+}
+.medium-image-scroll::-webkit-scrollbar {
+  display: none;
+}
+.medium-image-container {
+  width: 50%;
+  flex: none;
+}
+.medium-image {
+  height: 150px;
+  margin: 0 12px 12px 12px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+}
+.mini-logo {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: solid 3px white;
+}
 
 /* MAIN - SIDE COLUMNS ELEMENTS */
 /* Side sections */
@@ -444,7 +479,6 @@ li > a:active {
   display: flex;
   flex-direction: column;
 }
-
 .unlock-image {
   width: 135px;
   height: 76px;
@@ -468,7 +502,6 @@ li > a:active {
 .unlock-button:hover {
   border: solid 1px rgb(118, 118, 118);
 }
-
 .share-first-li {
   margin: 0 0 20px 0;
 }
@@ -477,6 +510,23 @@ li > a:active {
 }
 .share-icon {
   margin-right: 10px;
+}
+
+/* Modal styling */
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  z-index: 667;
+}
+.signin-modal {
+  width: 400px;
+  height: 500px;
+  background-color: white;
+  overflow-y: hidden;
+  position: fixed;
 }
 
 /* JS OPERATIONS  */
@@ -493,6 +543,7 @@ li > a:active {
   }
   /* Modifying margin after aside disappearance */
   .center-col {
+    width: 100%;
     margin: 99px 0px 0 0px;
   }
   /* Menu width is 100% for tablets */
@@ -523,12 +574,27 @@ li > a:active {
   .top-header-right > button {
     display: none;
   }
-  .mobile-menu-icon-left,
-  .mobile-menu-icon-right {
+  .mobile-header-icon-left,
+  .mobile-header-icon-right {
     display: flex;
+    margin: 0 20px;
   }
   .bottom-header {
     top: -10px;
+  }
+  /* Center column changes */
+  .center-col {
+    margin: 150px 0 0 0;
+    flex: 1;
+  }
+  /* Container changes */
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  /* Hiding scroll menu */
+  .scroll-menu {
+    display: none;
   }
   /* Menu icons on several lines for mobile */
   .menu-icons {
@@ -541,18 +607,5 @@ li > a:active {
   .menu {
     height: 176px;
     bottom: -151px;
-  }
-  /* Center column changes */
-  .center-col {
-    margin-top: 175px;
-    flex: 1;
-  }
-  .container {
-    padding: 0;
-  }
-}
-@media (max-width: 600px) {
-  .mini-image-scroll {
-    max-width: 420px;
   }
 }
